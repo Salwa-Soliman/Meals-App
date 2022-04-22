@@ -13,8 +13,10 @@ import {
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Spacing } from "./../constants/Spacing";
+import IconButton from "./IconButton";
+import MealTitle from "./MealTitle";
 
-export default function MealItem({ meal }) {
+export default function MealItem({ meal, navigation }) {
   return (
     <View
       bg={"white"}
@@ -23,7 +25,9 @@ export default function MealItem({ meal }) {
       mx="7"
       my={Spacing.elementMargin}
     >
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("MealDetails", { id: meal.id })}
+      >
         <VStack>
           {/* image & title  */}
           <View>
@@ -34,27 +38,25 @@ export default function MealItem({ meal }) {
               w="100%"
               h="200"
             />
-            <Heading textAlign={"center"} fontSize="18" p={2} pb="0">
+            <MealTitle
+              affordability={meal.affordability}
+              duration={meal.duration}
+              complexity={meal.complexity}
+            >
               {meal.title}
-            </Heading>
+            </MealTitle>
+            <View
+              position={"absolute"}
+              // top="5"
+              p="3"
+              alignItems={"flex-end"}
+              w="100%"
+              bg="red"
+              height="100%"
+            >
+              <IconButton />
+            </View>
           </View>
-          {/* Details  */}
-          <HStack
-            justifyContent={"center"}
-            alignItems={"center"}
-            my={Spacing.elementMargin}
-            divider={<Divider w=".5" borderWidth={0.5} bg={"#000000"} />}
-          >
-            <Text mx={2} fontSize={12}>
-              {meal.duration} min
-            </Text>
-            <Text mx={2} textTransform={"uppercase"} fontSize={12}>
-              {meal.complexity}
-            </Text>
-            <Text mx={2} textTransform={"uppercase"} fontSize={12}>
-              {meal.affordability}
-            </Text>
-          </HStack>
         </VStack>
       </TouchableOpacity>
     </View>

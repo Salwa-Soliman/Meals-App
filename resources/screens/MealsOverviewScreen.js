@@ -23,8 +23,11 @@ export default function MealsOverviewScreen({ route, navigation }) {
     <MainScreen>
       <View flex="1">
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={categoryMeals}
-          renderItem={(itemData) => <MealItem meal={itemData.item} />}
+          renderItem={(itemData) => (
+            <MealItem meal={itemData.item} navigation={navigation} />
+          )}
         />
       </View>
     </MainScreen>
