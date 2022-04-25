@@ -1,9 +1,8 @@
-import { FlatList, Text, View } from "native-base";
 import React, { useLayoutEffect } from "react";
 import MainScreen from "../components/MainScreen";
-import MealItem from "../components/MealItem";
 import { MEALS } from "../data/dummy_data";
 import { CATEGORIES } from "./../data/dummy_data";
+import MealsList from "./../components/MealsList";
 
 export default function MealsOverviewScreen({ route, navigation }) {
   const categoryId = route.params.categoryId;
@@ -11,6 +10,7 @@ export default function MealsOverviewScreen({ route, navigation }) {
     (meal) => meal.categoryIds.some((id) => id === categoryId)
     // meal.categoryIds.indexOf(categoryId)>=0
   );
+
   useLayoutEffect(() => {
     const categoryTitle = CATEGORIES.find(
       (category) => category.id === categoryId
@@ -19,17 +19,10 @@ export default function MealsOverviewScreen({ route, navigation }) {
       title: categoryTitle,
     });
   }, [categoryId, navigation]);
+
   return (
     <MainScreen>
-      <View flex="1">
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={categoryMeals}
-          renderItem={(itemData) => (
-            <MealItem meal={itemData.item} navigation={navigation} />
-          )}
-        />
-      </View>
+      <MealsList meals={categoryMeals} navigation={navigation} />
     </MainScreen>
   );
 }

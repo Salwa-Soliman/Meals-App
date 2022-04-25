@@ -6,14 +6,15 @@ import MealTitle from "./MealTitle";
 import MealData from "./MealData";
 import { Colors } from "../constants/Colors";
 
-export default function Meal({ meal }) {
+export default function Meal({ meal, top, landscape }) {
   return (
     <View
       borderRadius={"3xl"}
       p={Spacing.screenPadding}
       position="relative"
-      top="-5%"
-      h="60%"
+      top={landscape ? "0" : "-5%"}
+      h={landscape ? "100%" : "60%"}
+      w={landscape ? "60%" : "100%"}
       bg={Colors.bgColor}
     >
       <ScrollView flex="1">

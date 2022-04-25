@@ -9,7 +9,6 @@ export default function CategoriesScreen({ navigation }) {
   return (
     <MainScreen>
       <ScrollView
-        // bg="amber.400"
         flex={1}
         contentContainerStyle={{
           flexDirection: "row",

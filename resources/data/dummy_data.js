@@ -3,16 +3,66 @@ import Meal from "../models/meal";
 
 //id, title, color
 export const CATEGORIES = [
-  new Category("c1", "Italian", "#f5428d"),
-  new Category("c2", "Quick & Easy", "#f54242"),
-  new Category("c3", "Hamburgers", "#f5a442"),
-  new Category("c4", "German", "#f5d142"),
-  new Category("c5", "Light & Lovely", "#368dff"),
-  new Category("c6", "Exotic", "#41d95d"),
-  new Category("c7", "Breakfast", "#9eecff"),
-  new Category("c8", "Asian", "#b9ffb0"),
-  new Category("c9", "French", "#ffc7ff"),
-  new Category("c10", "Summer", "#47fced"),
+  new Category(
+    "c1",
+    "Italian",
+    "#f5428d",
+    "https://i.pinimg.com/564x/9e/c4/d3/9ec4d32d4f20a718029e689704e2eddb.jpg"
+  ),
+  new Category(
+    "c2",
+    "Quick & Easy",
+    "#f54242",
+    "https://imgs.search.brave.com/XziArU6H-mxGoE-hayw2DU-jRZeafvNQmE_JzOQ4UQo/rs:fit:1024:683:1/g:ce/aHR0cHM6Ly9teWRh/cmlvLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8xMS9j/bG9jay1mb29kLTEw/MjR4NjgzLmpwZw"
+  ),
+  new Category(
+    "c3",
+    "Hamburgers",
+    "#f5a442",
+    "https://i.pinimg.com/564x/ac/08/2e/ac082ecc2c469cb381e5163e85ddc6ed.jpg"
+  ),
+  new Category(
+    "c4",
+    "German",
+    "#f5d142",
+    "https://imgs.search.brave.com/ikGcYd5irIRpQm3oPm9iXR28UMT6eaYIYLdsadc0rv0/rs:fit:1200:1155:1/g:ce/aHR0cHM6Ly9kZWxp/Y2lvdXNjdWlzaW5l/c29mZXVyb3BlYW5k/bWVkaXRlcnJhbmVh/LmRlbGljaW91c2N1/aXNpbmVzb2Z0aGV3/b3JsZC5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMTUvMTIv/R2VybWFuLUZvb2Qu/anBn"
+  ),
+  new Category(
+    "c5",
+    "Light & Lovely",
+    "#368dff",
+    "https://i.pinimg.com/564x/a7/73/0a/a7730a3033b9df97cf6a5c4c0da24fca.jpg"
+  ),
+  new Category(
+    "c6",
+    "Exotic",
+    "#41d95d",
+    "https://i.pinimg.com/564x/99/ca/9e/99ca9e4bb03540041b93b5b7de88d7f2.jpg"
+  ),
+  new Category(
+    "c7",
+    "Breakfast",
+    "#9eecff",
+    "https://i.pinimg.com/564x/87/cc/b8/87ccb894cc72a260992992f72925568c.jpg"
+  ),
+  new Category(
+    "c8",
+    "Asian",
+    "#b9ffb0",
+    "https://i.pinimg.com/564x/3c/51/c9/3c51c9545f15ecdd09a00cc514ba56c1.jpg"
+  ),
+  new Category(
+    "c9",
+    "French",
+    "#ffc7ff",
+    "https://i.pinimg.com/564x/9c/b6/76/9cb676a1944a651c2cdaf364d8108b09.jpg"
+  ),
+  new Category(
+    "c10",
+    "Summer",
+    "#47fced",
+    "https://i.pinimg.com/564x/b2/1d/48/b21d488a486d0e44c66e3b7be54e5251.jpg"
+  ),
 ];
 
 export const MEALS = [

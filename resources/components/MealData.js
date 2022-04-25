@@ -20,18 +20,13 @@ export default function MealData({ data, title }) {
         {title}:
       </Text>
       <View my={1} ml={3}>
-        <FlatList
-          data={data}
-          keyExtractor={(item, index) => index}
-          renderItem={(itemData) => (
-            <View mt="2">
-              <Unorderedlist style={{ fontSize: 20 }}>
-                <Text fontSize={15}>{itemData.item}</Text>
-              </Unorderedlist>
-            </View>
-          )}
-          scrollEnabled={false}
-        />
+        {data.map((item) => (
+          <View mt="2" key={item}>
+            <Unorderedlist style={{ fontSize: 20 }}>
+              <Text fontSize={15}>{item}</Text>
+            </Unorderedlist>
+          </View>
+        ))}
       </View>
     </View>
   );

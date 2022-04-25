@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Text,
   View,
@@ -10,34 +11,41 @@ import {
   Heading,
   HStack,
 } from "native-base";
-import React from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, useWindowDimensions } from "react-native";
 import { Spacing } from "./../constants/Spacing";
 import IconButton from "./IconButton";
 import MealTitle from "./MealTitle";
 
-export default function MealItem({ meal, navigation }) {
+export default function MealItem({ meal, navigation, numOfMeals }) {
+  const { width, height } = useWindowDimensions();
+  const landscape = width > height;
+  let cardWidth, cardMargin;
+
   return (
     <View
       bg={"white"}
       borderRadius="xl"
       shadow={5}
-      mx="7"
+      w={landscape ? "45%" : "90%"}
+      mx={landscape ? "2.5%" : "5%"}
       my={Spacing.elementMargin}
+      overflow="hidden"
     >
       <TouchableOpacity
         onPress={() => navigation.navigate("MealDetails", { id: meal.id })}
       >
-        <VStack>
+        <View borderTopRadius={"xl"}>
           {/* image & title  */}
-          <View>
+          <View flex={1}>
             <Image
               borderTopRadius={"xl"}
               source={{ uri: meal.imageUrl }}
               alt={meal.title}
               w="100%"
+              minW="100%"
               h="200"
             />
+            {/* title  */}
             <MealTitle
               affordability={meal.affordability}
               duration={meal.duration}
@@ -45,19 +53,19 @@ export default function MealItem({ meal, navigation }) {
             >
               {meal.title}
             </MealTitle>
+            {/* Icon  */}
             <View
               position={"absolute"}
-              // top="5"
               p="3"
               alignItems={"flex-end"}
               w="100%"
               bg="red"
               height="100%"
             >
-              <IconButton />
+              <IconButton mealId={meal.id} />
             </View>
           </View>
-        </VStack>
+        </View>
       </TouchableOpacity>
     </View>
   );
