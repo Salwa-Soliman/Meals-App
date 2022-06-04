@@ -15,10 +15,12 @@ import { CATEGORIES, MEALS } from "../data/dummy_data";
 import MealsList from "../components/MealsList";
 import { Colors } from "../constants/Colors";
 import { Alert } from "react-native";
+import { useSelector } from "react-redux";
 
 export default function FavoritesScreen({ navigation }) {
-  const FavoritesCtx = useContext(FavoritesContext);
-  const ids = FavoritesCtx.ids;
+  // const FavoritesCtx = useContext(FavoritesContext);
+  // const ids = FavoritesCtx.ids;
+  const ids = useSelector((state) => state.favoriteMeals.ids);
   const favoriteMeals = MEALS.filter((meal) => ids.includes(meal.id));
   const [category, setCategory] = useState("");
 

@@ -4,14 +4,18 @@ import { TouchableOpacity } from "react-native";
 import { Colors } from "./../constants/Colors";
 import { FavoritesContext } from "./../store/FavoritesContext";
 
+import { useSelector, useDispatch } from "react-redux";
+import { addFavorite, removeFavorite } from "../store/redux/favorites";
+
 export default function IconButton({ mealId }) {
-  const FavoritesCtx = useContext(FavoritesContext);
-  let isFavoriteMeal = FavoritesCtx.ids.includes(mealId);
+  let favoriteIds = useSelector((state) => state.favoriteMeals.ids);
+  let isFavoriteMeal = favoriteIds.includes(mealId);
+  let dispatch = useDispatch();
 
   function toggleFavoriteStatus() {
     isFavoriteMeal
-      ? FavoritesCtx.removeFavorite(mealId)
-      : FavoritesCtx.addFavorite(mealId);
+      ? dispatch(removeFavorite({ id: mealId }))
+      : dispatch(addFavorite({ id: mealId }));
   }
 
   return (
